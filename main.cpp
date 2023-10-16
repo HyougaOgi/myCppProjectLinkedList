@@ -42,7 +42,16 @@ public:
         return new Node(0);
     }
     int getValue(int index){
-        return 0;
+        int count = 0;
+        Node* iter = this->head;
+        while(iter != nullptr) {
+            if (count == index) {
+                return iter->data;
+            }
+            iter = iter->next;
+            count++;
+        }
+        return -1;
     }
 };
 
