@@ -38,8 +38,25 @@ public:
         }
     }
     Node* pop(int index){
-
-        return new Node(0);
+        if(this->head == nullptr){
+            return nullptr;
+        }
+        else if(this->tail == nullptr){
+            Node* tmp = this->head;
+            this->head = nullptr;
+            return tmp;
+        }
+        else if(this->head == this->tail){
+            Node* tmp = this->tail;
+            this->tail = nullptr;
+            return tmp;
+        }
+        else{
+            Node* tmp = this->tail;
+            this->tail = this->tail->prev;
+            this->tail->next = nullptr;
+            return tmp;
+        }
     }
     int getValue(int index){
         int count = 0;
